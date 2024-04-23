@@ -12,7 +12,7 @@ class Service extends Model
     protected $casts = [
         'gender' => 'string'
     ]
-    public function services(): HasMany
+    public function appointments(): HasMany
     {
         return $this->hasMany(Appointment::class);
     }
