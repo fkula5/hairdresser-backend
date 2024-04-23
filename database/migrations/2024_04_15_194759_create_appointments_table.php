@@ -14,10 +14,16 @@ return new class extends Migration
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('employee_id');
+            $table->unsignedBigInteger('customer_id');
+            $table->unsignedBigInteger('service_id');
+            $table->date('date');
+            $table->time('start_time');
             $table->string('opis');
             $table->timestamps();
 
             $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
+            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->foreign('service_id')->references('id')->on('services');
         });
     }
 
