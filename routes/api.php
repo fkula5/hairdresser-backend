@@ -11,3 +11,4 @@ Route::get('/user', function (Request $request) {
 
 Route::apiResource('/employees', EmployeeController::class);
 Route::apiResource('/appointments', AppointmentController::class);
+Route::apiResource('/services',ServicesController::class);

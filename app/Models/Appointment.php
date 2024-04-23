@@ -10,10 +10,15 @@ class Appointment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['employee_id', 'opis'];
+    protected $fillable = ['employee_id', 'opis','customer_id','service_id','date','start_time'];
 
     public function employee(): BelongsTo
     {
         return $this->belongsTo(Employee::class);
+    }
+
+    public function service()
+    {
+        return $this->belongsTo(Service::class);
     }
 }
