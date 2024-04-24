@@ -6,14 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Service extends Model
+class Customer extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'description', 'gender'];
 
-    protected $casts = [
-        'gender' => 'string'
-    ];
+    protected $fillable = ['name', 'second_name', 'phone_num', 'email', 'password'];
 
     public function appointments(): HasMany
     {
