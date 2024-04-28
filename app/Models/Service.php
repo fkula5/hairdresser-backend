@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Gender;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -13,7 +14,7 @@ class Service extends Model
     protected $fillable = ['name', 'description', 'gender'];
 
     protected $casts = [
-        'gender' => 'string'
+        'gender' => Gender::class
     ];
 
     public function appointments(): HasMany
