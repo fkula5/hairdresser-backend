@@ -3,17 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\ServiceCollection;
+use App\Http\Resources\ServiceResource;
 use App\Models\Service;
+use App\Repositories\ServiceRepository;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
+    public function __construct(private ServiceRepository $serviceRepository)
+    {
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return new ServiceCollection(Service::all());
+        return new ServiceCollection($this->serviceRepository->getAll());
     }
 
     /**
@@ -29,7 +35,7 @@ class ServiceController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return new ServiceResource($this->serviceRepository->find($id));
     }
 
     /**
