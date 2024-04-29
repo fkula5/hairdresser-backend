@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('name',64);
-            $table->string('description',64);
-            $table->enum('gender', ['female','male','unknown']);
+            $table->string('description',254);
+            $table->enum('gender', ['female','male','other']);
             $table->timestamps();
         });
     }
