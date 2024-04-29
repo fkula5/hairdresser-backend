@@ -29,7 +29,8 @@ class ServiceController extends Controller
      */
     public function store(StoreServiceRequest $request)
     {
-
+        $validated = $request->validated();
+        $this->serviceRepository->create($validated);
     }
 
     /**
@@ -45,7 +46,8 @@ class ServiceController extends Controller
      */
     public function update(UpdateServiceRequest $request, string $id)
     {
-        //
+        $validated = $request->validated();
+        $this->serviceRepository->update($validated, $id);
     }
 
     /**
@@ -53,6 +55,6 @@ class ServiceController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $this->serviceRepository->delete($id);
     }
 }
