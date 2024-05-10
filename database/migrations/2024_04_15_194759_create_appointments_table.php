@@ -16,9 +16,9 @@ return new class extends Migration
             $table->unsignedBigInteger('employee_id');
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('service_id');
-            $table->date('date');
-            $table->time('start_time');
-            $table->string('opis');
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
+            $table->string('comments', 256);
             $table->timestamps();
 
             $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');

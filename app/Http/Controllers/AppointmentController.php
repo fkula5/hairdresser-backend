@@ -2,26 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AppointmentStoreRequest;
+use App\Http\Requests\AppointmentUpdateRequest;
+use App\Http\Resources\AppointmentCollection;
 use App\Http\Resources\AppointmentResource;
 use App\Models\Appointment;
-use Illuminate\Http\Request;
+use App\Repositories\AppointmentRepository;
 
 class AppointmentController extends Controller
 {
+    public function __construct(private AppointmentRepository $appointmentRepository)
+    {
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return new AppointmentCollection($this->appointmentRepository->getAll());
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AppointmentStoreRequest $request)
     {
-        //
+        $validated = $request->validated();
+        $this->appointmentRepository->create($validated);
     }
 
     /**
@@ -35,9 +43,10 @@ class AppointmentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(AppointmentUpdateRequest $request, string $id)
     {
-        //
+        $validated = $request->validated();
+        $this->appointmentRepository->update($validated, $id);
     }
 
     /**
@@ -45,6 +54,6 @@ class AppointmentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $this->appointmentRepository->delete($id);
     }
 }
