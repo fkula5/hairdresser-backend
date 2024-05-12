@@ -11,7 +11,7 @@ class AppointmentUpdateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,7 +26,8 @@ class AppointmentUpdateRequest extends FormRequest
             'comments' => 'nullable|string|max:256',
             'customer_id' => 'integer|required|exists:customers,id',
             'service_id' => 'integer|required|exists:services,id',
-            'start_date' => 'date|required'
+            'start_date' => 'date|required',
+            'end_date' => 'date'
         ];
     }
 

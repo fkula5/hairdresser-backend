@@ -19,7 +19,7 @@ class AppointmentResource extends JsonResource
             'employee' => new EmployeeResource($this->employee),
             'customer' => $this->customer,
             'service' => new ServiceResource($this->service),
-            'comments' => $this->comment,
+            'comments' => $this->comments,
             'start_date' => $this->start_date,
             'end_date' => $this->end_date
         ];

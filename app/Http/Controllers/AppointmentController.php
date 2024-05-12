@@ -20,7 +20,7 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        return new AppointmentCollection($this->appointmentRepository->getAll());
+        return new AppointmentCollection(Appointment::with(['employee', 'customer', 'service'])->get());
     }
 
     /**
@@ -37,7 +37,7 @@ class AppointmentController extends Controller
      */
     public function show(string $id)
     {
-        return new AppointmentResource(Appointment::with('employee')->findOrFail($id));
+        return new AppointmentResource(Appointment::with(['employee', 'customer', 'service'])->findOrFail($id));
     }
 
     /**
