@@ -11,7 +11,7 @@ class Appointment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['employee_id', 'comments','customer_id','service_id','start_date', 'end_date'];
+    protected $fillable = ['employee_id', 'comments', 'customer_id', 'service_id', 'start_date', 'end_date'];
 
     public function employee(): BelongsTo
     {

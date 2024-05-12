@@ -27,7 +27,7 @@ class AppointmentStoreRequest extends FormRequest
             'customer_id' => 'integer|required|exists:customers,id',
             'service_id' => 'integer|required|exists:services,id',
             'start_date' => 'date|required',
-            'end_date' => 'date'
+            'end_date' => 'date',
         ];
     }
 
@@ -46,7 +46,7 @@ class AppointmentStoreRequest extends FormRequest
             'service_id.required' => 'Usługa jest wymagana',
             'service_id.exists' => 'Taka usługa nie istnieje',
             'start_date.date' => 'Data nie jest właściwa',
-            'start_date.required' => 'Data jest wymagana'
+            'start_date.required' => 'Data jest wymagana',
         ];
     }
 }

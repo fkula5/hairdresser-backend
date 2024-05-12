@@ -2,7 +2,6 @@
 
 namespace App\Http\Resources;
 
-use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -21,7 +20,7 @@ class AppointmentResource extends JsonResource
             'service' => new ServiceResource($this->service),
             'comments' => $this->comments,
             'start_date' => $this->start_date,
-            'end_date' => $this->end_date
+            'end_date' => $this->end_date,
         ];
     }
 }

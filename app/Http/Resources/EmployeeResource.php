@@ -16,7 +16,7 @@ class EmployeeResource extends JsonResource
     {
         return [
             'name' => $this->name,
-            'second_name' => $this->second_name
+            'second_name' => $this->second_name,
         ];
     }
 }

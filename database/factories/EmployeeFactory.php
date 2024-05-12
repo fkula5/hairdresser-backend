@@ -19,7 +19,7 @@ class EmployeeFactory extends Factory
     {
         return [
             'name' => fake()->firstName(),
-            'second_name' =>fake()->lastName(),
+            'second_name' => fake()->lastName(),
             'email' => fake()->unique()->safeEmail(),
             'password' => Hash::make('password'),
         ];

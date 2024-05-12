@@ -11,10 +11,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Service extends Model
 {
     use HasFactory;
+
     protected $fillable = ['name', 'description', 'gender'];
 
     protected $casts = [
-        'gender' => Gender::class
+        'gender' => Gender::class,
     ];
 
     public function appointments(): HasMany
