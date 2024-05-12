@@ -30,6 +30,7 @@ class EmployeeController extends Controller
     public function show(string $id)
     {
         $employee = new EmployeeResource(Employee::findOrFail($id));
+
         return $employee;
     }
 
