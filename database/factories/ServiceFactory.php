@@ -20,6 +20,7 @@ class ServiceFactory extends Factory
             'name' => fake()->word,
             'description' => fake()->text(254),
             'gender' => fake()->randomElement(['male', 'female', 'other']),
+            'duration' => fake()->randomElement([30, 60, 120]),
         ];
     }
 }

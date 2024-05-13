@@ -8,10 +8,11 @@ use App\Http\Resources\AppointmentCollection;
 use App\Http\Resources\AppointmentResource;
 use App\Models\Appointment;
 use App\Repositories\AppointmentRepository;
+use App\Services\AppointmentService;
 
 class AppointmentController extends Controller
 {
-    public function __construct(private AppointmentRepository $appointmentRepository)
+    public function __construct(private AppointmentRepository $appointmentRepository, private AppointmentService $appointmentService)
     {
     }
 
@@ -29,7 +30,7 @@ class AppointmentController extends Controller
     public function store(AppointmentStoreRequest $request)
     {
         $validated = $request->validated();
-        $this->appointmentRepository->create($validated);
+        $this->appointmentService->store($validated);
     }
 
     /**
