@@ -19,13 +19,9 @@ class Salon extends Model
         'phone_number',
         'opening_hours',
     ];
-    public function employees(): BelongsToMany
+    public function employees(): HasMany
     {
-        return $this->belongsToMany(Employee::class);
+        return $this->hasMany(Employee::class);
     }
 
-    public function services(): HasMany
-    {
-        return $this->hasMany(Service::class);
-    }
 }
