@@ -6,9 +6,7 @@ use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
 use App\Http\Resources\ServiceCollection;
 use App\Http\Resources\ServiceResource;
-use App\Models\Service;
 use App\Repositories\ServiceRepository;
-use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {

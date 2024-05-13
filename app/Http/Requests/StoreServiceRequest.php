@@ -26,7 +26,7 @@ class StoreServiceRequest extends FormRequest
         return [
             'name' => 'required|max:64|string',
             'description' => 'required|max:254|string',
-            'gender' => ['required', 'string', Rule::in(Gender::cases())]
+            'gender' => ['required', 'string', Rule::in(Gender::cases())],
         ];
     }
 
@@ -41,7 +41,7 @@ class StoreServiceRequest extends FormRequest
             'description.string' => 'Opis powinien być tekstem.',
             'gender.required' => 'Płeć jest wymagana.',
             'gender.string' => 'Płeć powinna być tekstem.',
-            'gender.in' => 'Nie prawidłowa wartość.'
+            'gender.in' => 'Nie prawidłowa wartość.',
         ];
     }
 }
