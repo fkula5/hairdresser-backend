@@ -12,7 +12,7 @@ class Service extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'gender'];
+    protected $fillable = ['name', 'description', 'gender', 'duration'];
 
     protected $casts = [
         'gender' => Gender::class,

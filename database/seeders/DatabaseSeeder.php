@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
         //            'name' => 'Test User',
         //            'email' => 'test@example.com',
         //        ]);
-
-        Appointment::factory(10)->create();
+        $this->call(ServiceSeeder::class);
+        Appointment::factory(50)->create();
         $this->call(EmployeeServiceSeeder::class);
     }
 }

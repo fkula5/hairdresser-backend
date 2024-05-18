@@ -26,9 +26,9 @@ class AppointmentFactory extends Factory
             'employee_id' => Employee::factory(),
             'comments' => fake()->text(254),
             'customer_id' => Customer::factory(), // Assuming you have 50 customers
-            'service_id' => Service::factory(), // Assuming you have 20 services
+            'service_id' => fake()->randomElement([1, 2, 3, 4, 5]), // Assuming you have 20 services
             'start_date' => $startDate,
-            'end_date' => $startDate->modify('+'.fake()->randomElement($duration).'minutes'),
+            'end_date' => $startDate->modify('+' . fake()->randomElement($duration) . 'minutes'),
         ];
     }
 }
