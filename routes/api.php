@@ -11,8 +11,10 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
+Route::get('/date/{date}/services/{service}', Schedule::class);
+
 Route::apiResource('/employees', EmployeeController::class);
 Route::apiResource('/appointments', AppointmentController::class);
 Route::apiResource('/services', ServiceController::class);
 
-Route::get('/schedule', Schedule::class);
+

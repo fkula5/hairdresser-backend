@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ScheduleRequest;
 use App\Models\Appointment;
 use App\Repositories\ServiceRepository;
 use Carbon\Carbon;
@@ -16,17 +17,18 @@ class Schedule extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(): array
+    public function __invoke(string $date, int $service): array
     {
+//        $validated = $request->validated();
 
         $availableStart = [];
 
-        $workStart = Carbon::today()->setTime(9, 0);
+        $workStart = Carbon::parse($date)->setTime(9, 0);
         $workEnd = $workStart->copy()->setTime(17, 0);
 
         $appointments = Appointment::whereDate('start_date', $workStart)->get();
 
-        $service = $this->serviceRepository->find(3);
+        $service = $this->serviceRepository->find($service);
 
         while ($workStart->lessThanOrEqualTo($workEnd->copy()->subMinutes($service->duration))) {
             $endTime = $workStart->copy()->addMinutes($service->duration);
